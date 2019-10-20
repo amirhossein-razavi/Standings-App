@@ -1,13 +1,581 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.reset-a {
+    color: white;
+    text-decoration: none
+}
+
+.input {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.input[placeholder] {
+    padding: 10px;
+}
+
+#left {
+    margin-right: -140px;
+}
+
+.box {
+    border-radius: 10px;
+    height: 500px;
+    overflow: auto;
+    float: left;
+    margin-top: 20px;
+    margin-left: 110px !important;
+    width: 200px;
+}
+
+.box::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+#standings {
+    width: 100%;
+    height: 657px;
+    background-image: url("./assets/images/og-news.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inbox {
+    padding: 10px;
+}
+
+#loginpageStyle {
+    background-image: url("./assets/images/259261-2-01.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cards {
+    height: 657px;
+    background-color: #f9f9fc;
+}
+
+.Card1 {
+    background-image: url("./assets/images/Cup.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .3s ease-in-out;
+    height: 200px;
+    width: 30%;
+    float: left;
+    margin-left: 30px;
+    margin-Top: 80px;
+    box-shadow: 0px 0px 15px rgb(141, 144, 162, .9);
+    border-radius: 5px;
+}
+
+.Card1:hover {
+    transform: scale(1.08)
+}
+
+.Card2 {
+    background-image: url("./assets/images/League.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .3s ease-in-out;
+    height: 200px;
+    width: 30%;
+    float: left;
+    margin-left: 30px;
+    margin-Top: 80px;
+    box-shadow: 0px 0px 15px rgb(141, 144, 162, .9);
+    border-radius: 5px;
+}
+
+.Card2:hover {
+    transform: scale(1.08)
+}
+
+.Card3 {
+    background-image: url("./assets/images/New2-01.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 30%;
+    float: left;
+    margin-left: 30px;
+    margin-Top: 80px;
+    box-shadow: 0px 0px 15px rgb(141, 144, 162, .9);
+    border-radius: 5px;
+}
+
+.nav-link {
+    padding: 0 !important;
+}
+
+#scrollStyle {
+    background-color: pink;
+    position: relative;
+}
+
+
+/* down-arrow */
+
+#scrollStyle a span {
+    position: absolute;
+    top: 0;
+    margin-top: 570px;
+    margin-left: 650px;
+    -webkit-animation: sdb07 2s infinite;
+    animation: sdb07 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+#scrollStyle a span:nth-of-type(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+#scrollStyle span:nth-of-type(2) {
+    top: 16px;
+    -webkit-animation-delay: .15s;
+    animation-delay: .15s;
+}
+
+#scrollStyle a span:nth-of-type(3) {
+    top: 32px;
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+
+@-webkit-keyframes sdb07 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes sdb07 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#theadStyle {
+    background: linear-gradient(to right, rgba(17, 38, 194, 1) 0%, rgba(135, 190, 201, 1) 100%);
+    color: #fff;
+}
+
+#theadStyle tr th {
+    border: 0;
+}
+
+.tdColor td {
+    color: #fff;
+    background-color: rgba(135, 190, 201, .3)
+}
+
+.textStyle {
+    color: #fff;
+    font-size: 50px;
+    float: left;
+    margin-left: 470px;
+    margin-top: 50px;
+}
+
+.buttonStyle {
+    margin-bottom: 10px;
+    background-color: transparent !important;
+    border: 2px solid #069BFF !important;
+    color: #fff;
+    /* margin-left: 995px; */
+    float: left;
+}
+
+.buttonStyle:hover {
+    background-color: #069BFF !important;
+    color: #fff;
+    border-color: #069BFF
+}
+
+.buttonStyle span {
+    margin-right: 5px;
+}
+
+.buttonStyle2 {
+    margin-bottom: 10px;
+    background-color: transparent !important;
+    border: 2px solid #069BFF !important;
+    color: #fff;
+    margin-left: 848px;
+    /* float: right;    */
+}
+
+.buttonStyle2:hover {
+    background-color: #069BFF !important;
+    color: #fff;
+    border-color: #069BFF
+}
+
+.sarb {
+    color: #ccc;
+    margin-left: 15px;
+}
+
+.sarb:hover {
+    color: white;
+    background-color: transparent #999;
+}
+
+.position2 {
+    background-color: #069BFF;
+    padding: 15px;
+    float: left;
+    margin-top: 140px;
+    /* margin-left: 90px; */
+    width: 200px;
+    height: 60px;
+    padding-left: 35px;
+    padding-top: 15px;
+    color: #fff;
+    border-radius: 20px/60px;
+    transition: all .3s ease-in;
+}
+
+.position2:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+.position2-1 {
+    background-color: #069BFF;
+    padding: 15px;
+    border-radius: 30px;
+    float: left;
+    margin-top: 150px;
+    /* margin-left: 90px; */
+    width: 200px;
+    height: 60px;
+    padding-left: 35px;
+    padding-top: 15px;
+    color: #fff;
+    border-radius: 20px/60px;
+    transition: all .3s ease-in;
+}
+
+.position2-1:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+.position3 {
+    background-color: #069BFF;
+    padding: 15px;
+    border-radius: 20px/60px;
+    float: left;
+    margin-top: 260px;
+    /* margin-left: 90px; */
+    width: 200px;
+    height: 60px;
+    /* padding-left: 35px; */
+    padding-top: 15px;
+    color: #fff;
+}
+
+.row1 {
+    float: left;
+    margin-top: 50px;
+}
+
+.position1:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+.position1 {
+    background-color: #069BFF;
+    /* border: 2px solid blue; */
+    border-radius: 20px/60px;
+    color: #fff;
+    padding-left: 35px;
+    padding-top: 15px;
+    margin-left: 25px;
+    margin-top: 30px;
+    /* border-radius: 30px; */
+    float: left;
+    width: 200px;
+    height: 60px;
+    transition: all .3s ease-in;
+}
+
+.row2 {
+    float: left;
+}
+
+.tournament {
+    height: 657px;
+    background: linear-gradient(to right, rgba(0,14,107,1) 0%, rgba(5,188,255,1) 100%);     /* background-image: url("./assets/images/UEFA-Champions-League.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.confirmButton{
+    margin-left: 200px;
+    margin-top: 30px;
+}
+
+.ChampionButton{
+    margin-left: 50px;
+    float: left;
+    margin-top: 30px;
+}
+
+.ChampionButton2{
+    margin-left: 45px;
+    float: left;
+    margin-top: 30px;
+}
+
+.ChampionButton2 span {
+    margin-right: 7px;
+}
+
+.line{
+   border-top: 2px solid #ccc;
+   border-right: 2px solid #ccc;
+   border-radius: 0 10px 0 0 ;
+   float: left;
+   width: 100px;
+   height: 60px;
+   margin-top: 60px;
+}
+
+.line2{
+    border-bottom: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-radius: 0 0 10px 0 ;
+    float: left;
+    width: 100px;
+    height: 60px;
+ }
+
+ .line3{
+    border-bottom: 2px solid #ccc;
+    float: left;
+    width: 50px;
+    height: 170px;
+ }
+
+ .line3-1{
+    border-bottom: 2px solid #ccc;
+    float: left;
+    width: 50px;
+    height: 210px;
+ }
+
+ .line4{
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-radius: 0 10px 0 0 ;
+    float: left;
+    width: 100px;
+    height: 70px;
+    margin-top: 170px;
+ }
+
+ .line5{
+    border-bottom: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-radius: 0 0 10px 0 ;
+    float: left;
+    width: 100px;
+    height: 142px;
+ }
+
+ .line6{
+    border-bottom: 2px solid #ccc;
+    float: left;
+    width: 50px;
+    height: 292px;
+ }
+
+ .startTournamentback{
+    width: 500px;
+    height: 470px;
+    position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    /* background-color: red; */
+ }
+ 
+.startTournamentback:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.05);
+    /* background-color: white; */
+}
+ 
+.startTournament{
+    position: absolute;
+    background-color: #0c0480;
+    width: 70px;
+    height: 70px;
+    border-radius: 60px;
+    margin-top: 290px;
+    margin-left: 220px;
+}
+
+
+ .startTournament1{
+     position: absolute;
+     border : 3px solid #0089d9;
+     width: 150px;
+     height: 150px;
+     border-radius: 80px;
+     margin-top: 250px;
+     margin-left: 180px;
+     -webkit-animation: startanimate 2s infinite;
+    animation: startanimate 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+ }
+
+
+ .startTournament2{
+    position: absolute;
+    border : 3px solid #0089d9;
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    margin-top: 235px;
+    margin-left: 165px;
+    -webkit-animation: startanimate 2s infinite;
+    animation: startanimate 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
+}
+
+.startTournament3{
+    position: absolute;
+    border : 3px solid #0089d9;
+    width: 210px;
+    height: 210px;
+    border-radius: 120px;
+    margin-top: 220px;
+    margin-left: 150px;
+    -webkit-animation: startanimate 2s infinite;
+    animation: startanimate 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+}
+
+.startTournament4{
+    position: absolute;
+    border : 3px solid #0089d9;
+    width: 240px;
+    height: 240px;
+    border-radius: 140px;
+    margin-top: 205px;
+    margin-left: 135px;
+    -webkit-animation: startanimate 2s infinite;
+    animation: startanimate 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+    -webkit-animation-delay: .6s;
+    animation-delay: .6s;
+}
+
+
+@-webkit-keyframes startanimate {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes startanimate {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.backMenu{
+    float: left;
+    margin-left: 40px;
+    width: 1300px;;
+}
+
+.backMenu Button{
+    color: #fff;
+    border: 2px solid #069BFF !important;
+    margin-top: 40px;
+    float: left;
+}
+
+.backMenu span {
+    margin-right: 7px;
+}
+
+.textStyle2{
+    color: #fff;
+    font-size: 50px;
+    float: left;
+    margin-left: 290px;
+    margin-top: 30px;
+}
+
+
