@@ -1,4 +1,5 @@
 export const ADD_TEAMS = 'ADD_TEAMS';
+export const ADD_TEAMS_T = 'ADD_TEAMS_T';
 export const DELETE_TEAM = 'DELETE_TEAM';
 export const EDIT_TEAM = 'EDIT_TEAM';
 export const UPDATE_TEAM = 'UPDATE_TEAM';
@@ -10,7 +11,7 @@ export const CHANGE_USERNAME = 'CHANGE_USERNAME';
 export const SAVE_TITLE = 'SAVE_TITLE';
 export const ADD_TEAM = 'ADD_TEAM';
 export const WIN_TEAM = 'WIN_TEAM';
-export const WIN_TEAM2 = 'WIN_TEAM2';
 export const WINNER_TEAM = 'WINNER_TEAM';
 export const WINNER_TEAM2 = 'WINNER_TEAM2';
+export const WINNER_TEAM3 = 'WINNER_TEAM3';
 export const CHANGE_MODAL = 'CHANGE_MODAL';

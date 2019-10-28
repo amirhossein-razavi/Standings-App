@@ -14,7 +14,7 @@ export const Teams = (state = { data: [], selectedTeam: [] }, action) => {
                     {
                         id: Number(i + new Date().getTime()),
                         title: 'Enter Team Name',
-                        username : 'Enter Username',
+                        username: 'Enter Username',
                         Pts: 0,
                         GF: 0,
                         GA: 0,
@@ -29,11 +29,11 @@ export const Teams = (state = { data: [], selectedTeam: [] }, action) => {
             }
 
 
-            case (ActionTypes.ADD_TEAM):
+        case (ActionTypes.ADD_TEAM):
             const sarb = {
                 id: Number(new Date().getTime()),
                 title: 'Enter Team Name',
-                username : 'Enter Username',
+                username: 'Enter Username',
                 Pts: 0,
                 GF: 0,
                 GA: 0,
@@ -107,17 +107,19 @@ export const Teams = (state = { data: [], selectedTeam: [] }, action) => {
             }
 
         case (ActionTypes.CHANGE_TITLE):
-            const titleIndex = action.payload.index
-            const title = action.payload.title
-            const newData = state.data;
-            newData[titleIndex].title = title;
-            console.log(state.data)
-            return {
-                ...state,
-                data: newData,
-            }
+            // const titleIndex = action.payload.index
+            // const title = action.payload.title
+            // const newData = state.data;
+            // newData[titleIndex].title = title;
+            // console.log(state.data)
+            // return {
+            //     ...state,
+            //     data: newData,
+            // }
 
-            case (ActionTypes.CHANGE_USERNAME):
+            return { ...state };
+
+        case (ActionTypes.CHANGE_USERNAME):
             const usernameIndex = action.payload.index
             const username = action.payload.username
             const newData2 = state.data;
@@ -128,8 +130,8 @@ export const Teams = (state = { data: [], selectedTeam: [] }, action) => {
                 data: newData2,
             }
 
-            case (ActionTypes.SAVE_TITLE):
-                    action.payload.preventDefault();
+        case (ActionTypes.SAVE_TITLE):
+            action.payload.preventDefault();
             console.log(state)
             return {
                 ...state,

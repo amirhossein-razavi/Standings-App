@@ -1,21 +1,45 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Label, FormGroup, Form, Input, FormFeedback } from 'reactstrap';
-import { timingSafeEqual } from 'crypto';
+import _ from 'lodash';
+
+const isValid = (item) => {
+  if (item.changed) {
+    if (item.title) {
+      return true;
+    }
+    return false;
+  }
+  return true;
+};
 
 
 
+const isAllValid = (teams) => {
+  // approach 1
+  const result = _.every(teams, item => item.changed && isValid(item));
+  return result;
+
+  // // approach 2
+  // const result = true;
+
+  // teams.forEach((item) => {
+  //   if (!isValid(item)) {
+  //     result = false;
+  //   }
+  // });
+
+  // return result;
+};
 
 class TeamsTitleT extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: false,
-      error: '',
-      firsterror: 'error'
+      disable: false
     };
 
     this.submitHandle = this.submitHandle.bind(this);
-    this.hanleChange = this.hanleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   submitHandle(e) {
@@ -23,84 +47,12 @@ class TeamsTitleT extends Component {
     this.props.saveTitle(e);
   }
 
-  hanleChange(index, value, team) {
-    this.props.changeTitle(index, value);
-
-    if (team.title.length === 0) {
-      this.setState({
-        error: "required",
-      })
-    }
-    else {
-      this.setState({
-        error: "",
-        // firsterror: ''  
-      })
-    }
-
-    console.log("title : ", this.state.title)
+  handleChange(value, team) {
+    this.props.changeTitle(team, value);
   }
-
-  // handleBlur =  (evt) => {
-  //   // console.log(1);
-  //   this.setState({
-  //     title: true 
-  //   });
-  // }
-
-
-  // validate(title) {
-
-  //   const errors = {
-  //     title: '',
-  //   };
-
-  //   if (this.props.modal === "openTitleModal" && title[1].length < 3) {
-  //     console.log("if : if is working");
-  //     errors.title = 'required';
-  //   }
-
-  //   else {
-  //     errors.title = '';
-  //   };
-
-  //   console.log("errors : ", errors.title);
-
-  //   return errors;
-
-  // }
-
-
-
 
 
   render() {
-    // const title = this.props.teams.map((team) => {
-    //   return team.title
-    // })
-    // const errors = this.validate(title);
-    // console.log("error : ", errors.title);
-    // console.log("title : ", title)
-
-    const isValid = (item) => {
-      if (item.changed) {
-        if (item.title) {
-          console.log("changed : ", item.changed)
-          return true;
-        }
-        else return false;
-      }
-      else return true;
-    };
-
-    const change = this.props.teams.map((team) => {
-      if(team.changed === true){
-        return true
-      }
-      else return false
-      })
-
-
 
     return (
       <div>
@@ -121,10 +73,10 @@ class TeamsTitleT extends Component {
                           name="title"
                           className="input"
                           placeholder='Enter Team Name'
+                          value={item.title}
                           valid={isValid(item)}
                           invalid={!isValid(item)}
-                          // onBlur={isValid(item)}
-                          onChange={e => this.hanleChange(index, e.target.value, item)}
+                          onChange={e => this.handleChange(e.target.value, item)}
                         />
                         <FormFeedback>Required</FormFeedback>
                       </Col>
@@ -135,7 +87,7 @@ class TeamsTitleT extends Component {
 
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" type="submit" disabled={change}>Save</Button>
+              <Button color="primary" type="submit" disabled={!isAllValid(this.props.teams)}>Save</Button>
             </ModalFooter>
           </Form>
         </Modal>
@@ -144,9 +96,3 @@ class TeamsTitleT extends Component {
   }
 }
 export default (TeamsTitleT);
-
-
-
-
-
-

@@ -17,7 +17,7 @@ class TeamsNumberT extends Component {
 
   submitHandle(TeamsNumber , e) {
     this.props.hideModal();
-    this.props.addTeams(TeamsNumber);
+    this.props.addTeamsT(TeamsNumber);
     e.preventDefault();
   }
 
@@ -43,9 +43,7 @@ class TeamsNumberT extends Component {
                     <Input type="select" onChange= {(e) => {this.onChangeHandle(e)}}>
                       <option>4</option>
                       <option>6</option>
-                      <option>8</option>
-                      <option>10</option>
-                    </Input>
+                      </Input>
 
                   </Col>
                 </Row>

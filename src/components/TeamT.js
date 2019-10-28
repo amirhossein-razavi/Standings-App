@@ -24,7 +24,6 @@ class TeamT extends Component {
 
                     </div>
                 }
-                <br></br>
             </div>
 
         )

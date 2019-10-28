@@ -1,11 +1,16 @@
 import * as ActionTypes from './ActionTypes';
 
-export const addTeams = (title) => {
-    console.log("teamsNumber :" , title);
-    return{
+export const addTeams = (title) => ({
     type: ActionTypes.ADD_TEAMS,
     payload: Number(title)
-    }
+})
+
+export const addTeamsT = (title) => {
+    console.log("addTeamsT" , title)
+    return {
+        type: ActionTypes.ADD_TEAMS_T,
+        payload: Number(title)
+    };
 }
 
 export const deleteTeam = (id) => ({
@@ -40,9 +45,9 @@ export const sarbconsole = (sarb) => ({
     payload: sarb
 })
 
-export const changeTitle = (index, title) => ({
+export const changeTitle = (team, title) => ({
     type: ActionTypes.CHANGE_TITLE,
-    payload: { index, title }
+    payload: { team, title }
 })
 
 export const changeUsername = (index, username) => ({
@@ -59,18 +64,13 @@ export const addTeam = () => ({
     type: ActionTypes.ADD_TEAM,
 })
 
-export const winTeam = (item , index) => {
-    console.log('winTeam function', item , index);
+export const winTeam = (item, index) => {
+    console.log('winTeam function', item, index);
     return {
         type: ActionTypes.WIN_TEAM,
-        payload: {item , index}
+        payload: { item, index }
     };
 }
-
-export const winTeam2 = (item) => ({
-        type: ActionTypes.WIN_TEAM2,
-        payload: item
-})
 
 export const winnerTeam = () => ({
     type: ActionTypes.WINNER_TEAM,
@@ -80,13 +80,11 @@ export const winnerTeam2 = () => ({
     type: ActionTypes.WINNER_TEAM2,
 })
 
-export const changeModal = (modal) => ({
-    type: ActionTypes.CHANGE_MODAL,
-    payload : modal
+export const winnerTeam3 = () => ({
+    type: ActionTypes.WINNER_TEAM3,
 })
 
-
-
-
-
-
+export const changeModal = (modal) => ({
+    type: ActionTypes.CHANGE_MODAL,
+    payload: modal
+})

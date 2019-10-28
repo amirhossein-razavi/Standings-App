@@ -1,16 +1,17 @@
 import * as ActionTypes from './ActionTypes';
+import { sarbconsole } from './ActionCreators';
 
-export const Tournament = (state = { Tdata: [], fake: [], nextTeam: [], nextTeam2: [], nextTeam3: [] }, action) => {
+export const Tournament = (state = { Tdata: [], TfinalData: [], fake: [], nextTeam: [], nextTeam2: [], nextTeam3: [], nextTeam4: [], nextTeam5: [] }, action) => {
 
     switch (action.type) {
-        case (ActionTypes.ADD_TEAMS):
+        case (ActionTypes.ADD_TEAMS_T):
             const team = action.payload;
             const temp = [];
             // console.log("teamsNumber :" , team);
             for (let i = 0; i < team; i++) {
                 temp.push(
                     {
-                        id: Number(i + new Date().getTime()),
+                        id: i,
                         title: '',
                         index: '',
                         changed: false
@@ -25,21 +26,39 @@ export const Tournament = (state = { Tdata: [], fake: [], nextTeam: [], nextTeam
             }
 
         case (ActionTypes.CHANGE_TITLE):
-            const titleIndex = action.payload.index
-            const title = action.payload.title
-            const newData = state.Tdata;
-            newData[titleIndex].title = title;
-            newData[titleIndex].changed = true ;
-            console.log(state.Tdata);
+            // const titleIndex = action.payload.index
+            // const title = action.payload.title
+            // const newData = state.Tdata;
+            // newData[titleIndex].title = title;
+            // newData[titleIndex].changed = true;
+
+
+
+
             return {
                 ...state,
-                Tdata: newData,
-            }
+                Tdata: state.Tdata.map(t => (
+                    t.id === action.payload.team.id
+                        ? { ...t, title: action.payload.title, changed: true }
+                        : t
+                )),
+            };
 
         case (ActionTypes.SAVE_TITLE):
             action.payload.preventDefault();
 
-            console.log(state);
+            
+            // const newFinalData = [];
+
+            for (let i = 0; i < state.Tdata.length; i++) {
+                const randIndex = Math.floor((Math.random() * state.Tdata.length));
+                const FinalData = state.Tdata.slice(randIndex, randIndex + 1);
+                console.log("FinalData : " , FinalData);
+                // newFinalData.push(FinalData);
+            }
+            
+
+            console.log("TfinalData : " , state.TfinalData)
 
             return {
                 ...state,
@@ -74,6 +93,11 @@ export const Tournament = (state = { Tdata: [], fake: [], nextTeam: [], nextTeam
                     ...state,
                     nextTeam2: { ...state.fake }
                 }
+            else if (state.fake.index === 4 || state.fake.index === 5)
+                return {
+                    ...state,
+                    nextTeam4: { ...state.fake }
+                }
             else return { ...state }
 
 
@@ -81,6 +105,14 @@ export const Tournament = (state = { Tdata: [], fake: [], nextTeam: [], nextTeam
             return {
                 ...state,
                 nextTeam3: {
+                    ...state.fake
+                }
+            }
+
+        case (ActionTypes.WINNER_TEAM3):
+            return {
+                ...state,
+                nextTeam5: {
                     ...state.fake
                 }
             }
