@@ -37,8 +37,8 @@ class TeamsNumber extends Component {
 
     return (
       <div>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal}>Add Team</ModalHeader>
+        <Modal isOpen={this.state.isModalOpen}>
+          <ModalHeader>Add Team</ModalHeader>
           <ModalBody>
 
             <LocalForm onSubmit={(values) => this.submitHandle(values)}>

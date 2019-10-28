@@ -15,6 +15,7 @@ import TeamT from './TeamT';
 const mapStateToProps = state => {
     return {
         clubs: state.tournament.Tdata,
+        routePage: state.tournament.routePage,
         nextTeam: state.tournament.nextTeam,
         nextTeam2: state.tournament.nextTeam2,
         nextTeam3: state.tournament.nextTeam3,
@@ -22,13 +23,14 @@ const mapStateToProps = state => {
         nextTeam5: state.tournament.nextTeam5,
         championteam: state.tournament.fake,
         modal: state.modal.modal,
+        TfinalData: state.tournament.TfinalData
     }
 }
 
 const mapDispatchToProps = dispatch => ({
     addTeamsT: (title) => dispatch(addTeamsT(title)),
     winTeam: (item, index) => dispatch(winTeam(item, index)),
-    changeTitle: (team, title ) => dispatch(changeTitle(team, title)),
+    changeTitle: (team, title) => dispatch(changeTitle(team, title)),
     saveTitle: (e) => dispatch(saveTitle(e)),
     hideModal: () => dispatch(hideModal()),
     changeModal: (modal) => dispatch(changeModal(modal)),
@@ -59,20 +61,22 @@ class Tournament extends Component {
     }
 
     render() {
-
+        // console.log("newsarb : ", this.props.nextTeam);
+        // console.log("newsarb : ", this.props.nextTeam.title);
         return (
             <div className="tournamentStyle">
 
-                <div className="backMenu">
-                    <NavLink className="nav-link" to="./">
-                        <Button color='primary' outline>
-                            <span className="fa fa-chevron-left fa-1x"></span>
-                            Back To Menu
+                {this.props.TfinalData.length &&
+                    < div className="backMenu">
+                        <NavLink className="nav-link" to="./">
+                            <Button color='primary' outline>
+                                <span className="fa fa-chevron-left fa-1x"></span>
+                                Back To Menu
                                 </Button>
-                    </NavLink>
+                        </NavLink>
 
-                    <h1 className="textStyle2">Tournament Chart</h1>
-                </div>
+                        <h1 className="textStyle2">Tournament Chart</h1>
+                    </div>}
 
                 <TeamsNumberT
                     addTeamsT={this.props.addTeamsT}
@@ -98,7 +102,7 @@ class Tournament extends Component {
                     hideModal={this.props.hideModal}
                     modal={this.props.modal}
                     changeModal={this.props.changeModal}
-                    teams={this.props.clubs}
+                    teams={this.props.TfinalData}
                 />
 
                 <ConfirmModal2C6
@@ -114,7 +118,7 @@ class Tournament extends Component {
                 />
 
 
-                {this.props.clubs.length === 0 &&
+                {/* {!this.props.routePage &&
                     <div className="startTournamentback" onClick={() => { this.props.changeModal("teamsNumber") }}>
                         <div className="startTournament"></div>
                         <div className="startTournament1"></div>
@@ -122,15 +126,16 @@ class Tournament extends Component {
                         <div className="startTournament3"></div>
                         <div className="startTournament4"></div>
 
-                    </div>}
+                    </div>} */}
 
 
 
                 <div className="row1">
-                    {this.props.clubs && this.props.clubs.map((club, index) => (
+                    {this.props.TfinalData && this.props.TfinalData.map((club, index) => (
                         <TeamT
                             key={club.id}
-                            club={{ ...club, index }}
+                            club={{ ...club }}
+                            index={index}
                             winTeam={this.props.winTeam}
                             changeModal={this.props.changeModal}
                         />
@@ -140,7 +145,7 @@ class Tournament extends Component {
 
                 {/* 4 teams tournomant       */}
 
-                {this.props.clubs.length === 4 &&
+                {this.props.TfinalData.length === 4 &&
                     <div className="row2-1">
                         <div className="row2-1">
                             <div>
@@ -189,13 +194,15 @@ class Tournament extends Component {
                         </div>
 
 
-                    </div>}
+                    </div>
+                }
 
 
 
                 {/* 6 teams tournomant */}
 
-                {this.props.clubs.length === 6 &&
+                {
+                    this.props.TfinalData.length === 6 &&
                     <div className="mainRow">
                         <div className="row2">
                             <div className="extra">
@@ -280,10 +287,11 @@ class Tournament extends Component {
                         </div>
 
 
-                    </div>}
+                    </div>
+                }
 
 
-            </div>
+            </div >
         )
     }
 }

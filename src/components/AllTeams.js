@@ -25,8 +25,8 @@ const mapDispatchToProps = dispatch => ({
   changeSelected: (prop, value) => dispatch(changeSelected(prop, value)),
   hideModal: () => dispatch(hideModal()),
   sarbconsole: (sarb) => dispatch(sarbconsole(sarb)),
-  changeTitle: (index, title) => dispatch(changeTitle(index, title)),
-  changeUsername: (index, username) => dispatch(changeUsername(index, username)),
+  changeTitle: (team, title) => dispatch(changeTitle(team, title)),
+  changeUsername: (team, username) => dispatch(changeUsername(team, username)),
   saveTitle: (e) => dispatch(saveTitle(e)),
   addTeam: () => dispatch(addTeam()),
 });

@@ -8,15 +8,23 @@ class TeamsNumberT extends Component {
     super(props);
 
     this.state = {
+      isModalOpen: true ,
       TeamsNumber : 4
     };
 
     this.submitHandle = this.submitHandle.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
 
   }
 
+  toggleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen
+    })
+  }
+
   submitHandle(TeamsNumber , e) {
-    this.props.hideModal();
+    this.toggleModal();
     this.props.addTeamsT(TeamsNumber);
     e.preventDefault();
   }
@@ -32,8 +40,8 @@ class TeamsNumberT extends Component {
 
     return (
       <div>
-        <Modal isOpen={this.props.modal === "teamsNumber"} toggle={this.props.hideModal}>
-          <ModalHeader toggle={this.props.hideModal}>Add Team</ModalHeader>
+        <Modal isOpen={this.state.isModalOpen}>
+          <ModalHeader>Add Team</ModalHeader>
           <ModalBody>
             <Form onSubmit={(e) => {this.submitHandle(this.state.TeamsNumber , e)}}>
               <FormGroup>

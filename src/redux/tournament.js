@@ -1,13 +1,12 @@
 import * as ActionTypes from './ActionTypes';
 import { sarbconsole } from './ActionCreators';
 
-export const Tournament = (state = { Tdata: [], TfinalData: [], fake: [], nextTeam: [], nextTeam2: [], nextTeam3: [], nextTeam4: [], nextTeam5: [] }, action) => {
+export const Tournament = (state = { Tdata: [], routePage: false, TfinalData: [], fake: [], nextTeam: {}, nextTeam2: [], nextTeam3: [], nextTeam4: [], nextTeam5: [] }, action) => {
 
     switch (action.type) {
         case (ActionTypes.ADD_TEAMS_T):
             const team = action.payload;
             const temp = [];
-            // console.log("teamsNumber :" , team);
             for (let i = 0; i < team; i++) {
                 temp.push(
                     {
@@ -23,18 +22,10 @@ export const Tournament = (state = { Tdata: [], TfinalData: [], fake: [], nextTe
             return {
                 ...state,
                 Tdata: [].concat(state.Tdata, temp),
+                routePage: true
             }
 
         case (ActionTypes.CHANGE_TITLE):
-            // const titleIndex = action.payload.index
-            // const title = action.payload.title
-            // const newData = state.Tdata;
-            // newData[titleIndex].title = title;
-            // newData[titleIndex].changed = true;
-
-
-
-
             return {
                 ...state,
                 Tdata: state.Tdata.map(t => (
@@ -45,38 +36,40 @@ export const Tournament = (state = { Tdata: [], TfinalData: [], fake: [], nextTe
             };
 
         case (ActionTypes.SAVE_TITLE):
+
             action.payload.preventDefault();
+            const len = state.Tdata.length;
+            const temp2 = [];
 
-            
-            // const newFinalData = [];
-
-            for (let i = 0; i < state.Tdata.length; i++) {
+            for (let i = 0; i < len; i++) {
                 const randIndex = Math.floor((Math.random() * state.Tdata.length));
-                const FinalData = state.Tdata.slice(randIndex, randIndex + 1);
-                console.log("FinalData : " , FinalData);
-                // newFinalData.push(FinalData);
+                const slicedData = state.Tdata.slice(randIndex, randIndex + 1);
+                state.Tdata.splice(randIndex, 1);
+                temp2.push({
+                    id: slicedData[0].id,
+                    title: slicedData[0].title,
+                    index: slicedData[0].index,
+                    changed: true
+                },
+                );
             }
-            
-
-            console.log("TfinalData : " , state.TfinalData)
 
             return {
                 ...state,
+                TfinalData: [].concat(state.TfinalData, temp2),
             }
 
 
         case (ActionTypes.WIN_TEAM):
 
-            console.log('fake : ', state.fake)
-
             const item = action.payload.item;
             const index = Number(action.payload.index);
+            item.index = index;
 
             return {
                 ...state,
                 fake: {
                     ...item,
-                    index: index
                 }
             }
 

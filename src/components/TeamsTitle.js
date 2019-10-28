@@ -39,7 +39,7 @@ class TeamsTitle extends Component {
                           name="title"
                           className="input"
                           placeholder='Enter User Name'
-                          onChange={e => this.props.changeUsername(index, e.target.value)}
+                          onChange={e => this.props.changeUsername(item, e.target.value)}
                         />
                       </Col>
                       <Label for="update" md={2}> Team Name :</Label>
@@ -49,7 +49,7 @@ class TeamsTitle extends Component {
                           name="title"
                           className="input"
                           placeholder='Enter Team Name'
-                          onChange={e => this.props.changeTitle(index, e.target.value)}
+                          onChange={e => this.props.changeTitle(item, e.target.value)}
                         />
                       </Col>
                     </FormGroup>

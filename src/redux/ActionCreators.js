@@ -50,9 +50,9 @@ export const changeTitle = (team, title) => ({
     payload: { team, title }
 })
 
-export const changeUsername = (index, username) => ({
+export const changeUsername = (team, username) => ({
     type: ActionTypes.CHANGE_USERNAME,
-    payload: { index, username }
+    payload: { team, username }
 })
 
 export const saveTitle = (e) => ({

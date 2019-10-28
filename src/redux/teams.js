@@ -117,18 +117,28 @@ export const Teams = (state = { data: [], selectedTeam: [] }, action) => {
             //     data: newData,
             // }
 
-            return { ...state };
-
-        case (ActionTypes.CHANGE_USERNAME):
-            const usernameIndex = action.payload.index
-            const username = action.payload.username
-            const newData2 = state.data;
-            newData2[usernameIndex].username = username;
-            console.log(state.data)
             return {
                 ...state,
-                data: newData2,
-            }
+                data: state.data.map((item) => (
+                    item.id === action.payload.team.id
+                        ? { ...item, title: action.payload.title }
+                        : item
+                ))
+            };
+
+            
+
+
+        case (ActionTypes.CHANGE_USERNAME):
+
+            return{
+                ...state,
+                data: state.data.map(item =>(
+                    item.id === action.payload.team.id
+                    ? {...item , username: action.payload.username}
+                    : item
+                )),
+            };
 
         case (ActionTypes.SAVE_TITLE):
             action.payload.preventDefault();
