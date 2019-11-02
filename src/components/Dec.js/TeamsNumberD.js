@@ -8,8 +8,7 @@ const openModal = (isModalOpen , teams) => {
   return false;
 }
 
-
-class TeamsNumberT extends Component {
+class TeamsNumberD extends Component {
   constructor(props) {
     super(props);
 
@@ -31,7 +30,7 @@ class TeamsNumberT extends Component {
 
   submitHandle(TeamsNumber , e) {
     this.toggleModal();
-    this.props.addTeamsT(TeamsNumber);
+    this.props.addTeamsD(TeamsNumber);
     e.preventDefault();
   }
 
@@ -76,6 +75,6 @@ class TeamsNumberT extends Component {
     );
   }
 }
-export default (TeamsNumberT);
+export default (TeamsNumberD);
 
 

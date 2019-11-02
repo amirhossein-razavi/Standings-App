@@ -18,6 +18,10 @@ export const Modal = (state = MODAL, action) => {
             return {
                 ...state, modal: 'openTitleModal'
             }
+        case (ActionTypes.ADD_TEAMS_D):
+            return {
+                ...state, modal: 'openTitleModal'
+            }
 
         case (ActionTypes.CHANGE_MODAL):
             console.log("modal : ", state.modal)

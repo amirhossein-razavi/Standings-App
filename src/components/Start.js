@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import $ from 'jquery';
 import logo from '../assets/images/down-arrow.png';
-import { bounce } from 'react-animations';
-import Radium, { StyleRoot } from 'radium';
+// import { bounce } from 'react-animations';
+// import Radium, { StyleRoot } from 'radium';
 
 
 class Start extends Component {
@@ -64,12 +64,12 @@ class Start extends Component {
             // marginTop: '50px',
         };
 
-        const styles = {
-            bounce: {
-                animation: 'x 2s',
-                animationName: Radium.keyframes(bounce, 'bounce')
-            }
-        }
+        // const styles = {
+        //     bounce: {
+        //         animation: 'x 2s',
+        //         animationName: Radium.keyframes(bounce, 'bounce')
+        //     }
+        // }
 
 
 
@@ -104,38 +104,38 @@ class Start extends Component {
 
                 <div className="cards up">
                     {/* <StyleRoot> */}
-                        <NavLink className="nav-link" to='/Tournament'>
-                            <div  className="Card1" /*style={styles.bounce}*/>
+                    <NavLink className="nav-link" to='/Double-Elimination-Cup'>
+                        <div className="Card1" /*style={styles.bounce}*/>
 
-                            </div>
-                        </NavLink>
-                        {/* </StyleRoot> */}
-                    <NavLink className="nav-link" to='/Standings'>
+                        </div>
+                    </NavLink>
+                    {/* </StyleRoot> */}
+                    <NavLink className="nav-link" to='/Single-Elimination-Cup'>
                         <div className="Card2">
 
                         </div>
                     </NavLink>
 
-                    <NavLink className="nav-link" to=''>
+                    <NavLink className="nav-link" to='/League-Standings'>
                         <div className="Card3">
 
                         </div>
                     </NavLink>
 
                     <NavLink className="nav-link" to=''>
-                        <div className="Card3">
+                        <div className="Card4">
 
                         </div>
                     </NavLink>
 
                     <NavLink className="nav-link" to=''>
-                        <div className="Card3">
+                        <div className="Card5">
 
                         </div>
                     </NavLink>
 
                     <NavLink className="nav-link" to=''>
-                        <div className="Card3">
+                        <div className="Card4">
 
                         </div>
                     </NavLink>

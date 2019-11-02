@@ -49,8 +49,13 @@ class AllTeams extends Component {
             </NavLink>
             <Button className="buttonStyle2" onClick={this.props.addTeam}><span className="fa fa-plus fa-sm"></span> Add Team</Button>
 
-           
-            <TeamsNumber addTeams={this.props.addTeams} hideModal={this.props.hideModal} addTeam={this.props.addTeam} />
+
+            <TeamsNumber addTeams={this.props.addTeams}
+              hideModal={this.props.hideModal}
+              addTeam={this.props.addTeam}
+              teams={this.props.teams}
+
+            />
             <EditModal
               updateTeam={this.props.updateTeam}
               teams={this.props.teams}

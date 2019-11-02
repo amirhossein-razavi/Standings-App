@@ -70,7 +70,7 @@ code {
 }
 
 .Card1 {
-    background-image: url("./assets/images/Cup.png");
+    background-image: url("./assets/images/Cup-Duble.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -84,12 +84,13 @@ code {
     border-radius: 5px;
 }
 
+
 .Card1:hover {
     transform: scale(1.08)
 }
 
 .Card2 {
-    background-image: url("./assets/images/League.png");
+    background-image: url("./assets/images/Cup-Single.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -108,7 +109,40 @@ code {
 }
 
 .Card3 {
-    background-image: url("./assets/images/New2-01.png");
+    background-image: url("./assets/images/League.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .3s ease-in-out;
+    height: 200px;
+    width: 30%;
+    float: left;
+    margin-left: 30px;
+    margin-Top: 80px;
+    box-shadow: 0px 0px 15px rgb(141, 144, 162, .9);
+    border-radius: 5px;
+}
+
+.Card3:hover {
+    transform: scale(1.08)
+}
+
+.Card4 {
+    background-image: url("./assets/images/New-1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 30%;
+    float: left;
+    margin-left: 30px;
+    margin-Top: 80px;
+    box-shadow: 0px 0px 15px rgb(141, 144, 162, .9);
+    border-radius: 5px;
+}
+
+.Card5 {
+    background-image: url("./assets/images/New-2.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -257,6 +291,12 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     height: 790px;
 }
 
+.tournamentStyle2{
+    background: rgb(4,0,74);
+background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(0,138,166,1) 100%);
+    height: 657px;
+}
+
 .position2-4 {
     background-color: #069BFF;
     padding: 15px;
@@ -265,7 +305,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     /* margin-left: 90px; */
     width: 200px;
     height: 60px;
-    padding-left: 35px;
+    padding-left: 15px;
     padding-top: 15px;
     color: #fff;
     border-radius: 20px/60px;
@@ -291,7 +331,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     /* margin-left: 90px; */
     width: 200px;
     height: 60px;
-    padding-left: 35px;
+    padding-left: 15px;
     padding-top: 15px;
     color: #fff;
     border-radius: 20px/60px;
@@ -313,13 +353,23 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     padding: 15px;
     border-radius: 20px/60px;
     float: left;
-    margin-top: 260px;
+    margin-top: 250px;
     /* margin-left: 90px; */
     width: 200px;
     height: 60px;
     /* padding-left: 35px; */
+    padding-left: 15px;
     padding-top: 15px;
     color: #fff;
+}
+
+.position3-4:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
 }
 
 .position2 {
@@ -419,10 +469,6 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     transform: scale(1.05)
 }
 
-.row1 {
-    float: left;
-    margin-top: 50px;
-}
 
 .position1:hover {
     background-color: #069BFF;
@@ -438,7 +484,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     /* border: 2px solid blue; */
     border-radius: 20px/60px;
     color: #fff;
-    padding-left: 35px;
+    padding-left: 15px;
     padding-top: 15px;
     margin-left: 25px;
     margin-top: 30px;
@@ -449,15 +495,218 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     transition: all .3s ease-in;
 }
 
+.positionD:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+.positionD {
+    background-color: #069BFF;
+    /* border: 2px solid blue; */
+    border-radius: 20px/60px;
+    color: #fff;
+    padding-left: 15px;
+    padding-top: 15px;
+    margin-left: 25px;
+    margin-top: 30px;
+    /* border-radius: 30px; */
+    float: left;
+    width: 150px;
+    height: 55px;
+    transition: all .3s ease-in;
+}
+
+
+.position1-4D {
+    background-color: #069BFF;
+    padding: 15px;
+    float: left;
+    margin-top: 90px;
+    /* margin-left: 90px; */
+    width: 150px;
+    height: 55px;
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #fff;
+    border-radius: 20px/60px;
+    transition: all .3s ease-in;
+}
+
+.position1-4D:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+
+.position1-4-1D {
+    background-color: #069BFF;
+    padding: 15px;
+    border-radius: 30px;
+    float: left;
+    margin-top: 55px;
+    /* margin-left: 90px; */
+    width: 150px;
+    height: 55px;
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #fff;
+    border-radius: 20px/60px;
+    transition: all .3s ease-in;
+}
+
+.position1-4-1D:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+
+.position2-4D {
+    background-color: #069BFF;
+    padding: 15px;
+    border-radius: 20px/60px;
+    float: left;
+    margin-top: 150px;
+    /* margin-left: 90px; */
+    width: 150px;
+    height: 55px;
+    /* padding-left: 35px; */
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.position2-4D:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+.position3-4D {
+    background-color: #069BFF;
+    padding: 15px;
+    border-radius: 20px/60px;
+    float: left;
+    margin-top: 250px;
+    /* margin-left: 90px; */
+    width: 150px;
+    height: 55px;
+    /* padding-left: 35px; */
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.position3-4D:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+.position4-4D {
+    background-color: #069BFF;
+    padding: 15px;
+    float: left;
+    margin-top: 140px;
+    /* margin-left: 90px; */
+    width: 150px;
+    height: 55px;
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #fff;
+    border-radius: 20px/60px;
+    transition: all .3s ease-in;
+}
+
+.position4-4D:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+
+.position4-4-1D {
+    background-color: #069BFF;
+    padding: 15px;
+    border-radius: 30px;
+    float: left;
+    margin-top: 150px;
+    /* margin-left: 90px; */
+    width: 150px;
+    height: 55px;
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #fff;
+    border-radius: 20px/60px;
+    transition: all .3s ease-in;
+}
+
+.position4-4-1D:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
+.position5-4D {
+    background-color: #069BFF;
+    padding: 15px;
+    border-radius: 20px/60px;
+    float: left;
+    margin-top: 250px;
+    /* margin-left: 90px; */
+    width: 150px;
+    height: 55px;
+    /* padding-left: 35px; */
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.position5-4D:hover {
+    background-color: #069BFF;
+    cursor: pointer;
+    color: white;
+    border-color: #069BFF;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05)
+}
+
 .mainRow {
     float: left;
     width: 950px;
+}
 
+
+.row1 {
+    float: left;
+    margin-top: 50px;
 }
 
 .row2 {
     float: left;
-    /* background-color: yellow; */
     width: 350px;
 
 }
@@ -466,39 +715,40 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     float: left;
 }
 
+.row2-1C{
+    float: right;
+    margin-right: 50px
+}
+
+.row2-1D{
+    float: right;
+}
+
 .row3 {
     float: left;
-    /* background-color: blue; */
     width: 350px;
 }
 
 .row4 {
     float: left;
-    /* background-color: green; */
     width: 250px;
 }
 
 
 .extra{
     margin-top: 110px;
-    /* margin-left: 10px; */
-    /* background-color: red; */
     width: 350px;
     height: 120px;
 }
 
 .extra2{
     margin-top: 210px;
-    /* margin-left: 10px; */
-    /* background-color: red; */
     width: 350px;
     height: 120px;
 }
 
 .extra3{
     margin-top: 360px;
-    /* margin-left: 10px; */
-    /* background-color: red; */
     width: 250px;
     height: 120px;
 }
@@ -528,14 +778,14 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
 .line3-4{
     border-bottom: 2px solid #ccc;
     float: left;
-    width: 50px;
-    height: 170px;
+    width: 30px;
+    height: 175px;
  }
 
  .line3-4-1{
     border-bottom: 2px solid #ccc;
     float: left;
-    width: 50px;
+    width: 30px;
     height: 210px;
  }
 
@@ -544,7 +794,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     border-right: 2px solid #ccc;
     border-radius: 0 10px 0 0 ;
     float: left;
-    width: 100px;
+    width: 50px;
     height: 70px;
     margin-top: 170px;
  }
@@ -554,15 +804,15 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     border-right: 2px solid #ccc;
     border-radius: 0 0 10px 0 ;
     float: left;
-    width: 100px;
+    width: 50px;
     height: 142px;
  }
 
  .line6-4{
     border-bottom: 2px solid #ccc;
     float: left;
-    width: 50px;
-    height: 292px;
+    width: 30px;
+    height: 280px;
  }
 
 .line{
@@ -570,9 +820,9 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
    border-right: 2px solid #ccc;
    border-radius: 0 10px 0 0 ;
    float: left;
-   width: 100px;
+   width: 50px;
    height: 60px;
-   margin-top: 60px;
+   margin-top: 55px;
 }
 
 .line2{
@@ -580,7 +830,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     border-right: 2px solid #ccc;
     border-radius: 0 0 10px 0 ;
     float: left;
-    width: 100px;
+    width: 50px;
     height: 60px;
  }
 
@@ -648,6 +898,81 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     width: 100px;
     height: 270px;
     margin-top: 70px;
+ }
+
+ .line1-4D{
+    border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    border-radius: 10px 0 0 0 ;
+    float: left;
+    width: 50px;
+    height: 10px;
+    margin-top: 120px;
+ }
+
+ .line2-4D{
+    border-bottom: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    border-radius: 0 0 0 10px ;
+    float: left;
+    width: 50px;
+    height: 100px;
+ }
+
+ .line3-4D{
+    border-bottom: 2px solid #ccc;
+    float: left;
+    width: 30px;
+    height: 180px;
+ }
+
+ .line4-4D{
+    border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    border-radius: 10px 0 0 0 ;
+    float: left;
+    width: 50px;
+    height: 110px;
+    margin-top: 175px;
+ }
+
+ .line5-4D{
+    border-bottom: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    border-radius: 0 0 0 10px ;
+    float: left;
+    width: 50px;
+    height: 100px;
+ }
+ 
+ .line6-4D{
+    border-bottom: 2px solid #ccc;
+    float: left;
+    width: 30px;
+    height: 280px;
+ }
+
+ .line7-4D{
+    border-bottom: 2px solid #ccc;
+    float: left;
+    width: 30px;
+    height: 165px;
+ }
+
+ .line7-4-1D{
+    border-bottom: 2px solid #ccc;
+    float: left;
+    width: 30px;
+    height: 210px;
+ }
+
+ .line8-4D{
+    border-bottom: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-radius: 0 0 10px 0 ;
+    float: left;
+    width: 50px;
+    height: 135px;
  }
 
 

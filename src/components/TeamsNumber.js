@@ -7,6 +7,13 @@ const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const isNumber = (val) => !isNaN(Number(val));
 
+const openModal = (isModalOpen , teams) => {
+  if(isModalOpen && teams.length === 0){
+    return true;
+  }
+  return false;
+}
+
 
 class TeamsNumber extends Component {
   constructor(props) {
@@ -33,11 +40,9 @@ class TeamsNumber extends Component {
   }
 
   render() {
-
-
     return (
       <div>
-        <Modal isOpen={this.state.isModalOpen}>
+        <Modal isOpen={openModal(this.state.isModalOpen , this.props.teams)}>
           <ModalHeader>Add Team</ModalHeader>
           <ModalBody>
 

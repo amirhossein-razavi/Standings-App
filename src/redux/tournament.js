@@ -1,7 +1,6 @@
 import * as ActionTypes from './ActionTypes';
-import { sarbconsole } from './ActionCreators';
 
-export const Tournament = (state = { Tdata: [], routePage: false, TfinalData: [], fake: [], nextTeam: {}, nextTeam2: [], nextTeam3: [], nextTeam4: [], nextTeam5: [] }, action) => {
+export const Tournament = (state = { Tdata: [], TfinalData: [], fake: [], nextTeam: {}, nextTeam2: [], nextTeam3: [], nextTeam4: [], nextTeam5: [] }, action) => {
 
     switch (action.type) {
         case (ActionTypes.ADD_TEAMS_T):

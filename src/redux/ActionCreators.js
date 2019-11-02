@@ -13,6 +13,11 @@ export const addTeamsT = (title) => {
     };
 }
 
+export const addTeamsD = (title) => ({
+    type: ActionTypes.ADD_TEAMS_D,
+    payload: Number(title)
+})
+
 export const deleteTeam = (id) => ({
     type: ActionTypes.DELETE_TEAM,
     payload: Number(id)
