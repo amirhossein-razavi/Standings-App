@@ -72,6 +72,17 @@ export const Dec = (state = { Ddata: [], DfinalData: [], fake: [], nextTeam: {},
                 }
             }
 
+        case (ActionTypes.WIN_TEAM2):
+
+            const item2 = action.payload;
+
+            return {
+                ...state,
+                fake: {
+                    ...item2,
+                }
+            }
+
 
         case (ActionTypes.WINNER_TEAM):
             console.log('next team :', state.nextTeam)
@@ -114,22 +125,29 @@ export const Dec = (state = { Ddata: [], DfinalData: [], fake: [], nextTeam: {},
             else return { ...state }
 
 
-        // case (ActionTypes.WINNER_TEAM2):
-        //     return {
-        //         ...state,
-        //         nextTeam3: {
-        //             ...state.fake
-        //         }
-        //     }
+        case (ActionTypes.WINNER_TEAM2):
+            if (state.fake.index === 0 || state.fake.index === 1)
+                return {
+                    ...state,
+                    nextTeam3: { ...state.fake },
+                    nextTeam3D: { ...state.nextTeam2 }
+                }
+            else if (state.fake.index === 2 || state.fake.index === 3)
+                return {
+                    ...state,
+                    nextTeam3: { ...state.fake },
+                    nextTeam3D: { ...state.nextTeam }
+                }
+            else return{...state}
 
-        // case (ActionTypes.WINNER_TEAM3):
-        //     return {
-        //         ...state,
-        //         nextTeam5: {
-        //             ...state.fake
-        //         }
-        //     }
 
+        case (ActionTypes.WINNER_TEAM3):
+            return {
+                ...state,
+                nextTeam4D: {
+                    ...state.fake
+                }
+            }
 
         default:
             return state;

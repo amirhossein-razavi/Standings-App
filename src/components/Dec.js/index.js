@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addTeamsD, winTeam, changeTitle, saveTitle, hideModal, changeModal, winnerTeam, winnerTeam2, winnerTeam3 } from '../../redux/ActionCreators';
+import { addTeamsD, winTeam, winTeam2, changeTitle, saveTitle, hideModal, changeModal, winnerTeam, winnerTeam2, winnerTeam3 } from '../../redux/ActionCreators';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
@@ -7,7 +7,8 @@ import TeamsNumberD from './TeamsNumberD';
 import TeamsTitleD from './TeamsTitleD';
 import ConfirmModal from '../ConfirmModal';
 import ConfirmModal2 from '../ConfirmModal2';
-// import ConfirmModal2C6 from './ConfirmModal2-6';
+import ConfirmModal3 from '../ConfirmModal3';
+// import ConfirmModal3C6 from './ConfirmModal2-6';
 // import ChampionModal from './ChampionModal';
 import TeamD from './TeamD';
 
@@ -22,15 +23,19 @@ const mapStateToProps = state => {
         nextTeam5: state.dec.nextTeam5,
         nextTeamD: state.dec.nextTeamD,
         nextTeam2D: state.dec.nextTeam2D,
+        nextTeam3D: state.dec.nextTeam3D,
+        nextTeam4D: state.dec.nextTeam4D,
         championteam: state.dec.fake,
         modal: state.modal.modal,
-        DfinalData: state.dec.DfinalData
+        DfinalData: state.dec.DfinalData,
+        fake: state.dec.fake,
     }
 }
 
 const mapDispatchToProps = dispatch => ({
     addTeamsD: (title) => dispatch(addTeamsD(title)),
     winTeam: (item, index) => dispatch(winTeam(item, index)),
+    winTeam2: (item) => dispatch(winTeam2(item)),
     changeTitle: (team, title) => dispatch(changeTitle(team, title)),
     saveTitle: (e) => dispatch(saveTitle(e)),
     hideModal: () => dispatch(hideModal()),
@@ -50,9 +55,13 @@ class Dec extends Component {
 
 
     handleClick4(item) {
-        console.log("sarb : ", this.props.nextTeam);
-        this.props.winTeam(item);
+        this.props.winTeam2(item);
         this.props.changeModal("ConfirmModal2");
+    }
+
+    handleClick4_1(item) {
+        this.props.winTeam2(item);
+        this.props.changeModal("ConfirmModal3");
     }
 
     // handleClick6(item) {
@@ -62,9 +71,12 @@ class Dec extends Component {
     // }
 
     render() {
-        console.log("sarb : ", this.props.DfinalData.length);
-        console.log("sarb2 : ", this.props.clubs.length);
-        console.log("sarb3 : ", this.props.state);
+        console.log("fake : ", this.props.fake);
+        // console.log("nextteam3d : ", this.props.nextTeam3D);
+        console.log("nextteam3 : ", this.props.nextTeam3);
+        console.log("nextteam : ", this.props.nextTeam);
+        console.log("nextteam2 : ", this.props.nextTeam2);
+        // console.log("sarb3 : ", this.props.state);
         return (
             <div className={this.props.DfinalData.length === 6 ? "tournamentStyle" : "tournamentStyle2"}>
 
@@ -108,12 +120,20 @@ class Dec extends Component {
                     teams={this.props.DfinalData}
                 />
 
+                <ConfirmModal3
+                    winnerTeam2={this.props.winnerTeam2}
+                    winnerTeam3={this.props.winnerTeam3}
+                    hideModal={this.props.hideModal}
+                    modal={this.props.modal}
+                    changeModal={this.props.changeModal}
+                    teams={this.props.DfinalData}
+                />
+
                 {/* <ConfirmModal2C6
                     winnerTeam2={this.props.winnerTeam2}
                     hideModal={this.props.hideModal}
                     modal={this.props.modal}
                 />
-
                 <ChampionModal
                     modal={this.props.modal}
                     championteam={this.props.championteam}
@@ -128,7 +148,6 @@ class Dec extends Component {
                         <div className="startTournament2"></div>
                         <div className="startTournament3"></div>
                         <div className="startTournament4"></div>
-
                     </div>} */}
 
 
@@ -191,8 +210,8 @@ class Dec extends Component {
 
                             <div className="row2-1">
                                 <div className="row2-1">
-                                    <div className='position5-4D'>
-                                        <div></div>
+                                    <div>
+                                        <div className='position5-4D' href='#'> {this.props.nextTeam3.title} </div>
                                     </div>
                                 </div>
                             </div>
@@ -204,10 +223,10 @@ class Dec extends Component {
                             <div className="row2-1D">
                                 <div className="row2-1D">
                                     <div>
-                                        <div className='position1-4D' href='#'> {this.props.nextTeamD.title} </div>
+                                        <div className='position1-4D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeamD)}> {this.props.nextTeamD.title} </div>
                                     </div>
                                     <div>
-                                        <div className='position1-4-1D' href='#'>  {this.props.nextTeam2D.title} </div>
+                                        <div className='position1-4-1D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeam2D)}>  {this.props.nextTeam2D.title} </div>
                                     </div>
                                 </div>
                             </div>
@@ -233,12 +252,12 @@ class Dec extends Component {
                                 <div className="row2-1D">
                                     <div>
                                         <div className='position2-4D'>
-                                            <div></div>
+                                            <div href='#'> {this.props.nextTeam4D.title} </div>
                                         </div>
                                     </div>
                                     <div>
                                         <div className='position2-4D'>
-                                            <div></div>
+                                            <div href='#'> {this.props.nextTeam3D.title} </div>
                                         </div>
                                     </div>
                                 </div>

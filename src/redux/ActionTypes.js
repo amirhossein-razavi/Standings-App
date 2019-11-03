@@ -12,6 +12,7 @@ export const CHANGE_USERNAME = 'CHANGE_USERNAME';
 export const SAVE_TITLE = 'SAVE_TITLE';
 export const ADD_TEAM = 'ADD_TEAM';
 export const WIN_TEAM = 'WIN_TEAM';
+export const WIN_TEAM2 = 'WIN_TEAM2';
 export const WINNER_TEAM = 'WINNER_TEAM';
 export const WINNER_TEAM2 = 'WINNER_TEAM2';
 export const WINNER_TEAM3 = 'WINNER_TEAM3';

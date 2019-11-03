@@ -70,10 +70,18 @@ export const addTeam = () => ({
 })
 
 export const winTeam = (item, index) => {
-    console.log('winTeam function', item, index);
+    // console.log('winTeam function', item, index);
     return {
         type: ActionTypes.WIN_TEAM,
         payload: { item, index }
+    };
+}
+
+export const winTeam2 = (item) => {
+    console.log('winTeam function', item);
+    return {
+        type: ActionTypes.WIN_TEAM2,
+        payload:  item 
     };
 }
 

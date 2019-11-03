@@ -3,11 +3,11 @@ import { Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import sarb from '../assets/images/giphy.gif.crdownload';
 
 
-class ConfirmModal2 extends Component {
+class ConfirmModal3 extends Component {
 
   submitHandle() {
     if(this.props.teams.length === 4){
-    this.props.winnerTeam2();
+    this.props.winnerTeam3();
     this.props.hideModal();
     }
     else{
@@ -20,8 +20,8 @@ class ConfirmModal2 extends Component {
 
     return (
       <div>
-        <Modal isOpen={this.props.modal === "ConfirmModal2"} toggle={() => {this.props.changeModal("ChampionModal")}} >
-        <ModalHeader toggle={() => {this.props.changeModal("ChampionModal")}}>Awesome!!&ensp;&ensp;you win??</ModalHeader>
+        <Modal isOpen={this.props.modal === "ConfirmModal3"} >
+        <ModalHeader>Awesome!!&ensp;&ensp;you win??</ModalHeader>
           <ModalBody>
           <img src={sarb }alt="" style={{marginLeft: 130+'px'}}></img>
           <br></br>
@@ -32,6 +32,6 @@ class ConfirmModal2 extends Component {
     );
   }
 }
-export default (ConfirmModal2);
+export default (ConfirmModal3);
 
 
