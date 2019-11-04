@@ -8,6 +8,7 @@ import TeamsTitleD from './TeamsTitleD';
 import ConfirmModal from '../ConfirmModal';
 import ConfirmModal2 from '../ConfirmModal2';
 import ConfirmModal3 from '../ConfirmModal3';
+import ChampionModal from '../ChampionModal';
 // import ConfirmModal3C6 from './ConfirmModal2-6';
 // import ChampionModal from './ChampionModal';
 import TeamD from './TeamD';
@@ -25,6 +26,7 @@ const mapStateToProps = state => {
         nextTeam2D: state.dec.nextTeam2D,
         nextTeam3D: state.dec.nextTeam3D,
         nextTeam4D: state.dec.nextTeam4D,
+        nextTeam5D: state.dec.nextTeam5D,
         championteam: state.dec.fake,
         modal: state.modal.modal,
         DfinalData: state.dec.DfinalData,
@@ -55,14 +57,37 @@ class Dec extends Component {
 
 
     handleClick4(item) {
-        this.props.winTeam2(item);
-        this.props.changeModal("ConfirmModal2");
+        if (this.props.nextTeam.title && this.props.nextTeam2.title) {
+            this.props.winTeam2(item);
+            this.props.changeModal("ConfirmModal2");
+        }
     }
 
     handleClick4_1(item) {
-        this.props.winTeam2(item);
-        this.props.changeModal("ConfirmModal3");
+        if (this.props.nextTeamD.title && this.props.nextTeam2D.title && !this.props.nextTeam4D.title) {
+            this.props.winTeam2(item);
+            this.props.changeModal("ConfirmModal3");
+        }
+        else if (this.props.nextTeam3D.title && this.props.nextTeam4D.title && !this.props.nextTeam5D.title) {
+            this.props.winTeam2(item);
+            this.props.changeModal("ConfirmModal3");
+        }
+        else if (this.props.nextTeam5D.title && this.props.nextTeam3.title) {
+            this.props.winTeam2(item);
+            this.props.changeModal("ConfirmModal3");
+        }
     }
+
+    // handleClick4_2(item) {
+    //     if (this.props.nextTeam3D.title && this.props.nextTeam4D.title && !this.props.nextTeam5D.title) {
+    //         this.props.winTeam2(item);
+    //         this.props.changeModal("ConfirmModal3");
+    //     }
+    //     else{
+    //         this.props.winTeam2(item);
+    //         this.props.changeModal("ConfirmModal3");
+    //     }
+    // }
 
     // handleClick6(item) {
     //     console.log("sarb : ", this.props.nextTeam);
@@ -71,12 +96,8 @@ class Dec extends Component {
     // }
 
     render() {
-        console.log("fake : ", this.props.fake);
-        // console.log("nextteam3d : ", this.props.nextTeam3D);
-        console.log("nextteam3 : ", this.props.nextTeam3);
-        console.log("nextteam : ", this.props.nextTeam);
-        console.log("nextteam2 : ", this.props.nextTeam2);
-        // console.log("sarb3 : ", this.props.state);
+        console.log("nextTeam5D : ", this.props.nextTeam5D);
+        console.log("nextTeam3 : ", this.props.nextTeam3);
         return (
             <div className={this.props.DfinalData.length === 6 ? "tournamentStyle" : "tournamentStyle2"}>
 
@@ -127,17 +148,20 @@ class Dec extends Component {
                     modal={this.props.modal}
                     changeModal={this.props.changeModal}
                     teams={this.props.DfinalData}
+                    nextTeam5D={this.props.nextTeam5D}
+                    nextTeam3={this.props.nextTeam3}
                 />
-
-                {/* <ConfirmModal2C6
-                    winnerTeam2={this.props.winnerTeam2}
-                    hideModal={this.props.hideModal}
-                    modal={this.props.modal}
-                />
+               
                 <ChampionModal
                     modal={this.props.modal}
                     championteam={this.props.championteam}
                     hideModal={this.props.hideModal}
+                />
+
+                 {/* <ConfirmModal2C6
+                    winnerTeam2={this.props.winnerTeam2}
+                    hideModal={this.props.hideModal}
+                    modal={this.props.modal}
                 /> */}
 
 
@@ -160,6 +184,8 @@ class Dec extends Component {
                             index={index}
                             winTeam={this.props.winTeam}
                             changeModal={this.props.changeModal}
+                            nextTeam={this.props.nextTeam}
+                            nextTeam2={this.props.nextTeam2}
                         />
                     ))}
                 </div>
@@ -183,10 +209,14 @@ class Dec extends Component {
                             <div className="row2-1">
                                 <div className="row2-1">
                                     <div>
-                                        <div className='position4-4D' href='#' onClick={() => this.handleClick4(this.props.nextTeam)}> {this.props.nextTeam.title} </div>
+                                        <button className='position4-4D' href='#' onClick={() => this.handleClick4(this.props.nextTeam)}
+                                            disabled={this.props.nextTeam3.title}
+                                        > {this.props.nextTeam.title} </button>
                                     </div>
                                     <div>
-                                        <div className='position4-4-1D' href='#' onClick={() => this.handleClick4(this.props.nextTeam2)}> {this.props.nextTeam2.title} </div>
+                                        <button className='position4-4-1D' href='#' onClick={() => this.handleClick4(this.props.nextTeam2)}
+                                            disabled={this.props.nextTeam3.title}
+                                        > {this.props.nextTeam2.title} </button>
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +241,10 @@ class Dec extends Component {
                             <div className="row2-1">
                                 <div className="row2-1">
                                     <div>
-                                        <div className='position5-4D' href='#'> {this.props.nextTeam3.title} </div>
+                                        <button className='position5-4D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeam3)}
+                                            disabled={this.props.modal === "ChampionModal" ||
+                                                !(this.props.nextTeamD.title && this.props.nextTeam2D.title && this.props.nextTeam3D.title && this.props.nextTeam4D.title && this.props.nextTeam3.title)}
+                                        > {this.props.nextTeam3.title} </button>
                                     </div>
                                 </div>
                             </div>
@@ -223,10 +256,15 @@ class Dec extends Component {
                             <div className="row2-1D">
                                 <div className="row2-1D">
                                     <div>
-                                        <div className='position1-4D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeamD)}> {this.props.nextTeamD.title} </div>
+                                        <button className='position1-4D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeamD)}
+                                            disabled={this.props.nextTeam4D.title}
+                                        > {this.props.nextTeamD.title} </button>
                                     </div>
                                     <div>
-                                        <div className='position1-4-1D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeam2D)}>  {this.props.nextTeam2D.title} </div>
+                                        <button className='position1-4-1D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeam2D)}
+                                            disabled={this.props.nextTeam4D.title}
+
+                                        >  {this.props.nextTeam2D.title} </button>
                                     </div>
                                 </div>
                             </div>
@@ -251,13 +289,18 @@ class Dec extends Component {
                             <div className="row2-1D">
                                 <div className="row2-1D">
                                     <div>
-                                        <div className='position2-4D'>
-                                            <div href='#'> {this.props.nextTeam4D.title} </div>
+                                        <div>
+                                            <button className='position2-4D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeam4D)}
+                                                disabled={(this.props.nextTeam5D.title && this.props.nextTeam3D) || !this.props.nextTeam4D.title}
+                                            > {this.props.nextTeam4D.title} </button>
                                         </div>
                                     </div>
                                     <div>
-                                        <div className='position2-4D'>
-                                            <div href='#'> {this.props.nextTeam3D.title} </div>
+                                        <div>
+                                            <button className='position2-4D' href='#' onClick={() => this.handleClick4_1(this.props.nextTeam3D)}
+                                                disabled={this.props.nextTeam5D.title && this.props.nextTeam4D}
+
+                                            > {this.props.nextTeam3D.title} </button>
                                         </div>
                                     </div>
                                 </div>
@@ -280,8 +323,11 @@ class Dec extends Component {
                             </div>
                             <div className="row2-1D">
                                 <div className="row2-1D">
-                                    <div className='position3-4D'>
-                                        <div></div>
+                                    <div>
+                                        <button className='position3-4D' onClick={() => this.handleClick4_1(this.props.nextTeam5D)}
+                                            disabled={this.props.modal === "ChampionModal" ||
+                                                !(this.props.nextTeamD.title && this.props.nextTeam2D.title && this.props.nextTeam3D.title && this.props.nextTeam4D.title && this.props.nextTeam3.title)}
+                                        > {this.props.nextTeam5D.title} </button>
                                     </div>
                                 </div>
                             </div>

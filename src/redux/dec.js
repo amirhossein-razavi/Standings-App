@@ -90,25 +90,25 @@ export const Dec = (state = { Ddata: [], DfinalData: [], fake: [], nextTeam: {},
                 return {
                     ...state,
                     nextTeam: { ...state.fake },
-                    nextTeamD: { ...state.DfinalData[1] }
+                    nextTeamD: { ...state.DfinalData[1], index: 1 }
                 }
             else if (state.fake.index === 1)
                 return {
                     ...state,
                     nextTeam: { ...state.fake },
-                    nextTeamD: { ...state.DfinalData[0] }
+                    nextTeamD: { ...state.DfinalData[0], index: 0 }
                 }
             else if (state.fake.index === 2)
                 return {
                     ...state,
                     nextTeam2: { ...state.fake },
-                    nextTeam2D: { ...state.DfinalData[3] }
+                    nextTeam2D: { ...state.DfinalData[3], index: 3 }
                 }
             else if (state.fake.index === 3)
                 return {
                     ...state,
                     nextTeam2: { ...state.fake },
-                    nextTeam2D: { ...state.DfinalData[2] }
+                    nextTeam2D: { ...state.DfinalData[2], index: 2 }
                 }
             // else if (state.fake.index === 4)
             //     return {
@@ -138,10 +138,20 @@ export const Dec = (state = { Ddata: [], DfinalData: [], fake: [], nextTeam: {},
                     nextTeam3: { ...state.fake },
                     nextTeam3D: { ...state.nextTeam }
                 }
-            else return{...state}
+            else return { ...state }
 
 
         case (ActionTypes.WINNER_TEAM3):
+            if (state.nextTeam4D.title)
+                return {
+                    ...state,
+                    nextTeam5D: {
+                        ...state.fake
+                    }
+                }
+            else if (state.nextTeam5D.title)
+                return state;
+                
             return {
                 ...state,
                 nextTeam4D: {

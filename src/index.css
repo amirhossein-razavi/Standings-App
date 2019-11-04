@@ -509,8 +509,8 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     /* border: 2px solid blue; */
     border-radius: 20px/60px;
     color: #fff;
-    padding-left: 15px;
-    padding-top: 15px;
+    padding-right: 20px;
+    /* padding-top: 15px; */
     margin-left: 25px;
     margin-top: 30px;
     /* border-radius: 30px; */
@@ -518,6 +518,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     width: 150px;
     height: 55px;
     transition: all .3s ease-in;
+    border: 0
 }
 
 
@@ -534,6 +535,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     color: #fff;
     border-radius: 20px/60px;
     transition: all .3s ease-in;
+    border: 0;
 }
 
 .position1-4D:hover {
@@ -560,6 +562,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     color: #fff;
     border-radius: 20px/60px;
     transition: all .3s ease-in;
+    border: 0;
 }
 
 .position1-4-1D:hover {
@@ -585,6 +588,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     padding-left: 15px;
     padding-top: 15px;
     color: #fff;
+    border: 0;
 }
 
 .position2-4D:hover {
@@ -609,6 +613,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     padding-left: 15px;
     padding-top: 15px;
     color: #fff;
+    border: 0;
 }
 
 .position3-4D:hover {
@@ -633,6 +638,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     color: #fff;
     border-radius: 20px/60px;
     transition: all .3s ease-in;
+    border: 0;
 }
 
 .position4-4D:hover {
@@ -659,6 +665,8 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     color: #fff;
     border-radius: 20px/60px;
     transition: all .3s ease-in;
+    border: 0;
+
 }
 
 .position4-4-1D:hover {
@@ -683,6 +691,7 @@ background: linear-gradient(90deg, rgba(4,0,74,1) 0%, rgba(0,0,158,1) 44%, rgba(
     padding-left: 15px;
     padding-top: 15px;
     color: #fff;
+    border : 0;
 }
 
 .position5-4D:hover {
