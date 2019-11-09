@@ -32,6 +32,7 @@ module.exports = {
     "no-alert": 0,
     "object-curly-newline": 0,
     "max-len": ["error", { "code": 300 }],
-    "react/destructuring-assignment" : 0,
+    "react/destructuring-assignment": 0,
+    "react/sort-comp": 0,
   },
 };

@@ -56,9 +56,8 @@ const Dec = (state = { Ddata: [], DfinalData: [], fake: [], nextTeam: {}, nextTe
     }
     case (ActionTypes.WIN_TEAM): {
       const { item } = action.payload;
-      const { index } = Number(action.payload);
+      const { index } = action.payload;
       item.index = index;
-
       return {
         ...state,
         fake: {

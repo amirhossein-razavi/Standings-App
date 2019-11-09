@@ -3,19 +3,18 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import sarb from '../assets/images/giphy.gif.crdownload';
 
 class ConfirmModal2 extends Component {
-  // eslint-disable-next-line class-methods-use-this
-  submitHandle(teams, winnerTeam2, winnerTeam3, hideModal, changeModal) {
-    if (teams.length === 4) {
-      winnerTeam2();
-      hideModal();
+  submitHandle() {
+    if (this.props.teams.length === 4) {
+      this.props.winnerTeam2();
+      this.props.hideModal();
     } else {
-      winnerTeam3();
-      changeModal('ChampionModal');
+      this.props.winnerTeam3();
+      this.props.changeModal('ChampionModal');
     }
   }
 
   render() {
-    const { teams, winnerTeam2, winnerTeam3, changeModal, hideModal, modal } = this.props;
+    const { changeModal, hideModal, modal } = this.props;
     return (
       <div>
         <Modal isOpen={modal === 'ConfirmModal2'} toggle={hideModal}>
@@ -26,7 +25,7 @@ class ConfirmModal2 extends Component {
             <Button
               color="success"
               className="confirmButton"
-              onClick={() => { this.submitHandle(teams, winnerTeam2, winnerTeam3, hideModal, changeModal); }}
+              onClick={() => { this.submitHandle(); }}
             >
               {'Sure'}
             </Button>

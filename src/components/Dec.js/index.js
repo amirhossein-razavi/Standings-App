@@ -207,14 +207,11 @@ class Dec extends Component {
                       <button
                         type="button"
                         className="position4-4D"
-                        href="#"
+                        // href="#"
                         onClick={() => this.handleClick(this.props.nextTeam)}
                         disabled={this.props.nextTeam3.title}
                       >
-                        {' '}
                         {this.props.nextTeam.title}
-                        {' '}
-
                       </button>
                     </div>
                     <div>
@@ -225,10 +222,7 @@ class Dec extends Component {
                         onClick={() => this.handleClick(this.props.nextTeam2)}
                         disabled={this.props.nextTeam3.title}
                       >
-                        {' '}
                         {this.props.nextTeam2.title}
-                        {' '}
-
                       </button>
                     </div>
                   </div>
@@ -259,10 +253,7 @@ class Dec extends Component {
                         disabled={this.props.modal === 'ChampionModal'
                           || !(this.props.nextTeamD.title && this.props.nextTeam2D.title && this.props.nextTeam3D.title && this.props.nextTeam4D.title && this.props.nextTeam3.title)}
                       >
-                        {' '}
                         {this.props.nextTeam3.title}
-                        {' '}
-
                       </button>
                     </div>
                   </div>
@@ -281,10 +272,7 @@ class Dec extends Component {
                         onClick={() => this.handleClickNext(this.props.nextTeamD)}
                         disabled={this.props.nextTeam4D.title}
                       >
-                        {' '}
                         {this.props.nextTeamD.title}
-                        {' '}
-
                       </button>
                     </div>
                     <div>
@@ -295,10 +283,7 @@ class Dec extends Component {
                         onClick={() => this.handleClickNext(this.props.nextTeam2D)}
                         disabled={this.props.nextTeam4D.title}
                       >
-                        {' '}
                         {this.props.nextTeam2D.title}
-                        {' '}
-
                       </button>
                     </div>
                   </div>
@@ -329,10 +314,7 @@ class Dec extends Component {
                           onClick={() => this.handleClickNext(this.props.nextTeam4D)}
                           disabled={(this.props.nextTeam5D.title && this.props.nextTeam3D) || !this.props.nextTeam4D.title}
                         >
-                          {' '}
                           {this.props.nextTeam4D.title}
-                          {' '}
-
                         </button>
                       </div>
                     </div>
@@ -345,10 +327,7 @@ class Dec extends Component {
                           onClick={() => this.handleClickNext(this.props.nextTeam3D)}
                           disabled={(this.props.nextTeam5D.title && this.props.nextTeam4D) || !this.props.nextTeam3D.title}
                         >
-                          {' '}
                           {this.props.nextTeam3D.title}
-                          {' '}
-
                         </button>
                       </div>
                     </div>
@@ -377,10 +356,7 @@ class Dec extends Component {
                         disabled={this.props.modal === 'ChampionModal'
                           || !(this.props.nextTeamD.title && this.props.nextTeam2D.title && this.props.nextTeam3D.title && this.props.nextTeam4D.title && this.props.nextTeam3.title)}
                       >
-                        {' '}
                         {this.props.nextTeam5D.title}
-                        {' '}
-
                       </button>
                     </div>
                   </div>
@@ -405,15 +381,12 @@ class Dec extends Component {
                   </div>
                   <div className="row2-1">
                     <button type="button" className="position2" onClick={() => this.handleClick6(this.props.nextTeam)}>
-                      {' '}
                       {this.props.nextTeam.title}
-                      {' '}
                     </button>
                   </div>
                   <div className="row2-1">
                     <div className="line4" />
                   </div>
-
 
                 </div>
                 <div className="extra">
@@ -423,15 +396,12 @@ class Dec extends Component {
                   </div>
                   <div className="row2-1">
                     <button className="position2-1" type="button" onClick={() => this.handleClick6(this.props.nextTeam2)}>
-                      {' '}
                       {this.props.nextTeam2.title}
-                      {' '}
                     </button>
                   </div>
                   <div className="row2-1">
                     <div className="line5" />
                   </div>
-
 
                 </div>
                 <div className="extra">
@@ -449,9 +419,7 @@ class Dec extends Component {
                   </div>
                   <div className="row2-1">
                     <button className="position3" type="button" onClick={() => this.handleClick(this.props.nextTeam3)}>
-                      {' '}
                       {this.props.nextTeam3.title}
-                      {' '}
                     </button>
                   </div>
                   <div className="row2-1">
@@ -464,9 +432,7 @@ class Dec extends Component {
                   </div>
                   <div className="row2-1">
                     <button type="button" className="position2-2" onClick={() => this.handleClick(this.props.nextTeam4)}>
-                      {' '}
                       {this.props.nextTeam4.title}
-                      {' '}
                     </button>
                   </div>
                   <div>
@@ -482,9 +448,7 @@ class Dec extends Component {
                   </div>
                   <div className="row2-1">
                     <div className="position3">
-                      {' '}
                       {this.props.nextTeam5.title}
-                      {' '}
                     </div>
                   </div>
                 </div>
