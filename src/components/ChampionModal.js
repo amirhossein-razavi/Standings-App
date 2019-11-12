@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
-import sarb from '../assets/images/giphy_2.gif';
+import gif from '../assets/images/giphy_2.gif';
 
 
 class ChampionModal extends Component {
@@ -23,7 +23,7 @@ class ChampionModal extends Component {
         <Modal isOpen={this.props.modal === 'ChampionModal'} toggle={this.props.hideModal}>
           <ModalHeader toggle={this.props.hideModal}>{`${this.props.championteam.title} is the Champion`}</ModalHeader>
           <ModalBody>
-            <img src={sarb} alt="" className="gifC" width="360px" height="300px" />
+            <img src={gif} alt="" className="gifC" width="360px" height="300px" />
             <div>
               <Button color="primary" className="ChampionButton2" onClick={() => { this.submitHandle2(); }}>
                 <span className="fa fa-chevron-left fa-1x" />

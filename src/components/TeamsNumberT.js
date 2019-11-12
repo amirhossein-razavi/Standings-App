@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Col, Label, Row, Input, Form, FormGroup } from 'reactstrap';
 
-const openModal = (isModalOpen , teams) => {
-  if(isModalOpen && teams.length === 0){
+const openModal = (isModalOpen, teams) => {
+  if (isModalOpen && teams.length === 0) {
     return true;
   }
   return false;
-}
+};
 
 
 class TeamsNumberT extends Component {
@@ -14,50 +14,48 @@ class TeamsNumberT extends Component {
     super(props);
 
     this.state = {
-      isModalOpen: true ,
-      TeamsNumber : 4
+      isModalOpen: true,
+      TeamsNumber: 4,
     };
 
     this.submitHandle = this.submitHandle.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
-
   }
 
   toggleModal() {
-    this.setState({
-      isModalOpen: !this.state.isModalOpen
-    })
+    this.setState((state) => ({
+      isModalOpen: !state.isModalOpen,
+    }));
   }
 
-  submitHandle(TeamsNumber , e) {
+  submitHandle(TeamsNumber, e) {
     this.toggleModal();
     this.props.addTeamsT(TeamsNumber);
     e.preventDefault();
   }
 
-  onChangeHandle(e){
+  onChangeHandle(e) {
     this.setState({
-      TeamsNumber : e.target.value
-    })
+      TeamsNumber: e.target.value,
+    });
   }
 
 
   render() {
-
     return (
       <div>
-        <Modal isOpen={openModal(this.state.isModalOpen , this.props.teams)}>
+        <Modal isOpen={openModal(this.state.isModalOpen, this.props.teams)}>
           <ModalHeader>Add Team</ModalHeader>
           <ModalBody>
-            <Form onSubmit={(e) => {this.submitHandle(this.state.TeamsNumber , e)}}>
+            <Form onSubmit={(e) => { this.submitHandle(this.state.TeamsNumber, e); }}>
               <FormGroup>
                 <Row className="form-group">
                   <Col md={12}>
                     <Label md={12}><h5>Enter the number of teams</h5></Label>
-                    <Input type="select" onChange= {(e) => {this.onChangeHandle(e)}}>
+                    <Input type="select" onChange={(e) => { this.onChangeHandle(e); }}>
                       <option>4</option>
                       <option>6</option>
-                      </Input>
+                    </Input>
 
                   </Col>
                 </Row>
@@ -65,7 +63,7 @@ class TeamsNumberT extends Component {
                   <Col md={{ size: 12 }}>
                     <Button type="submit" color="primary">
                       Add
-                   </Button>
+                    </Button>
                   </Col>
                 </Row>
               </FormGroup>
@@ -77,5 +75,3 @@ class TeamsNumberT extends Component {
   }
 }
 export default (TeamsNumberT);
-
-

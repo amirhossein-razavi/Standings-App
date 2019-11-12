@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import sarb from '../assets/images/giphy.gif.crdownload';
+import gif from '../assets/images/giphy.gif.crdownload';
 
 
 class ConfirmModal extends Component {
@@ -16,7 +16,7 @@ class ConfirmModal extends Component {
           <ModalHeader toggle={this.props.hideModal}>Awesome!!&ensp;&ensp;you win??</ModalHeader>
           <ModalBody>
             <div>
-              <img className="gif" src={sarb} alt="" />
+              <img className="gif" src={gif} alt="" />
             </div>
             <Button color="success" className="confirmButton" onClick={() => { this.submitHandle(); }}>Sure</Button>
           </ModalBody>

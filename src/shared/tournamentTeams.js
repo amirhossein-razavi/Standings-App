@@ -1,2 +1,3 @@
-export const initialteam =
-    [];
+const initialteam = [];
+
+export { initialteam as default };

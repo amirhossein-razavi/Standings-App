@@ -13,10 +13,9 @@ const isValid = (item) => {
 };
 
 
-
 const isAllValid = (teams) => {
   // approach 1
-  const result = _.every(teams, item => item.changed && isValid(item));
+  const result = _.every(teams, (item) => item.changed && isValid(item));
   return result;
 
   // // approach 2
@@ -34,9 +33,6 @@ const isAllValid = (teams) => {
 class TeamsTitleT extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      disable: false
-    };
 
     this.submitHandle = this.submitHandle.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -53,37 +49,34 @@ class TeamsTitleT extends Component {
 
 
   render() {
-
     return (
       <div>
-        <Modal isOpen={this.props.modal === "openTitleModal"}>
+        <Modal isOpen={this.props.modal === 'openTitleModal'}>
           <ModalHeader>Teams Title</ModalHeader>
           <Form onSubmit={(e) => this.submitHandle(e)}>
             <ModalBody>
 
-              {this.props.teams && this.props.teams.map((item, index) => {
-                return (
+              {this.props.teams && this.props.teams.map((item) => (
 
-                  <div>
-                    <FormGroup row key={item.id}>
-                      <Label for="update" md={4}> Team Name :</Label>
-                      <Col md={8} >
-                        <Input
-                          type="text"
-                          name="title"
-                          className="input"
-                          placeholder='Enter Team Name'
-                          value={item.title}
-                          valid={isValid(item)}
-                          invalid={!isValid(item)}
-                          onChange={e => this.handleChange(e.target.value, item)}
-                        />
-                        <FormFeedback>Required</FormFeedback>
-                      </Col>
-                    </FormGroup>
-                  </div>
-                )
-              })}
+                <div>
+                  <FormGroup row key={item.id}>
+                    <Label for="update" md={4}> Team Name :</Label>
+                    <Col md={8}>
+                      <Input
+                        type="text"
+                        name="title"
+                        className="input"
+                        placeholder="Enter Team Name"
+                        value={item.title}
+                        valid={isValid(item)}
+                        invalid={!isValid(item)}
+                        onChange={(e) => this.handleChange(e.target.value, item)}
+                      />
+                      <FormFeedback>Required</FormFeedback>
+                    </Col>
+                  </FormGroup>
+                </div>
+              ))}
 
             </ModalBody>
             <ModalFooter>

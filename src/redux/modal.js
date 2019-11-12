@@ -1,5 +1,5 @@
 import * as ActionTypes from './ActionTypes';
-import { MODAL } from '../shared/modal';
+import MODAL from '../shared/modal';
 
 const Modal = (state = MODAL, action) => {
   switch (action.type) {
@@ -20,7 +20,10 @@ const Modal = (state = MODAL, action) => {
       return {
         ...state, modal: 'openTitleModal',
       };
-
+    case (ActionTypes.MATCH_LIST):
+      return {
+        ...state, modal: 'matchList',
+      };
     case (ActionTypes.CHANGE_MODAL):
       return {
         ...state, modal: action.payload,

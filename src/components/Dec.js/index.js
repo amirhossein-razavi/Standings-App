@@ -86,7 +86,6 @@ class Dec extends Component {
   // }
 
   // handleClick6(item) {
-  //     console.log("sarb : ", this.props.nextTeam);
   //     this.props.winTeam(item);
   //     this.props.changeModal("ConfirmModal2C6");
   // }

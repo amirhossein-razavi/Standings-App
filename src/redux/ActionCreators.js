@@ -40,11 +40,6 @@ export const hideModal = () => ({
   type: ActionTypes.HIDE_MODAL,
 });
 
-export const sarbconsole = (sarb) => ({
-  type: ActionTypes.CONSOLE,
-  payload: sarb,
-});
-
 export const changeTitle = (team, title) => ({
   type: ActionTypes.CHANGE_TITLE,
   payload: { team, title },
@@ -89,4 +84,8 @@ export const winnerTeam3 = () => ({
 export const changeModal = (modal) => ({
   type: ActionTypes.CHANGE_MODAL,
   payload: modal,
+});
+
+export const matchList = () => ({
+  type: ActionTypes.MATCH_LIST,
 });

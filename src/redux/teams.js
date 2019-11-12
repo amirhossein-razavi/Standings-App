@@ -1,7 +1,8 @@
+/* eslint-disable no-restricted-globals */
 import * as ActionTypes from './ActionTypes';
 // import { initialteam } from '../shared/teams'
 
-const Teams = (state = { data: [], selectedTeam: [] }, action) => {
+const Teams = (state = { data: [], selectedTeam: [], matchData: [] }, action) => {
   switch (action.type) {
     case (ActionTypes.ADD_TEAMS): {
       const teamsNumber = action.payload;
@@ -29,7 +30,7 @@ const Teams = (state = { data: [], selectedTeam: [] }, action) => {
 
 
     case (ActionTypes.ADD_TEAM): {
-      const sarb = {
+      const addTemp = {
         id: Number(new Date().getTime()),
         title: 'Enter Team Name',
         username: 'Enter Username',
@@ -41,17 +42,23 @@ const Teams = (state = { data: [], selectedTeam: [] }, action) => {
 
       return {
         ...state,
-        data: [].concat(state.data, sarb),
+        data: [].concat(state.data, addTemp),
       };
     }
 
 
     case (ActionTypes.DELETE_TEAM): {
       const id = action.payload;
-      return {
-        ...state,
-        data: state.data.filter((post) => post.id !== id),
-      };
+      const onConfirm = confirm('Are you sure ?');
+
+      if (onConfirm) {
+        return {
+          ...state,
+          data: state.data.filter((post) => post.id !== id),
+          matchData: state.matchData.filter((post) => post.id !== id),
+        };
+      }
+      return state;
     }
 
     case (ActionTypes.EDIT_TEAM): {
@@ -82,6 +89,7 @@ const Teams = (state = { data: [], selectedTeam: [] }, action) => {
     case (ActionTypes.UPDATE_TEAM): {
       const { selectedTeam } = state;
       action.payload.preventDefault();
+
       return {
         ...state,
         data: state.data.map((item) => (
@@ -97,19 +105,23 @@ const Teams = (state = { data: [], selectedTeam: [] }, action) => {
             }
             : item
         )),
+        matchData: state.matchData.map((i) => (
+          i.id === selectedTeam.id
+            ? {
+              ...i,
+              title: selectedTeam.title,
+              username: selectedTeam.username,
+              GF: Number(selectedTeam.GF) + Number(i.GF),
+              GA: Number(selectedTeam.GA) + Number(i.GA),
+              GD: Number(i.GD) + Number(selectedTeam.GF) - Number(selectedTeam.GA),
+              Pts: Number(selectedTeam.Pts) + Number(i.Pts),
+            }
+            : i
+        )),
       };
     }
 
     case (ActionTypes.CHANGE_TITLE):
-      // const titleIndex = action.payload.index
-      // const title = action.payload.title
-      // const newData = state.data;
-      // newData[titleIndex].title = title;
-      // console.log(state.data)
-      // return {
-      //     ...state,
-      //     data: newData,
-      // }
 
       return {
         ...state,
@@ -132,11 +144,34 @@ const Teams = (state = { data: [], selectedTeam: [] }, action) => {
       };
     }
 
-    case (ActionTypes.SAVE_TITLE):
+    case (ActionTypes.SAVE_TITLE): {
       action.payload.preventDefault();
+
+      const fake = [...state.data];
+      const len = fake.length;
+      const matchTemp = [];
+
+      for (let i = 0; i < len; i += 1) {
+        const newlen = fake.length;
+        const randIndex = Math.floor((Math.random() * newlen));
+        const slicedData = fake.slice(randIndex, randIndex + 1);
+        fake.splice(randIndex, 1);
+        matchTemp.push({
+          id: slicedData[0].id,
+          title: slicedData[0].title,
+          username: slicedData[0].username,
+          index: slicedData[0].index,
+          Pts: slicedData[0].Pts,
+          GF: slicedData[0].GF,
+          GA: slicedData[0].GA,
+          GD: slicedData[0].GD,
+        });
+      }
       return {
         ...state,
+        matchData: [].concat(state.matchData, matchTemp),
       };
+    }
 
     default:
       return state;

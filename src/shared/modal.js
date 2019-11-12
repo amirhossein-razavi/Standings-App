@@ -1,6 +1,7 @@
-export const MODAL =
-    [
-        {
-            modal: 'open'
-        }
-    ];
+const MODAL = [
+  {
+    modal: 'open',
+  },
+];
+
+export { MODAL as default };

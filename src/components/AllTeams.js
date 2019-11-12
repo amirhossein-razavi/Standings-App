@@ -8,13 +8,15 @@ import Team from './Team';
 import TeamsNumber from './TeamsNumber';
 import EditModal from './Edit';
 import TeamsTitle from './TeamsTitle';
+import MatchListModal from './MatchListModal';
 
-import { addTeams, deleteTeam, editTeam, updateTeam, changeSelected, hideModal, sarbconsole, changeTitle, changeUsername, saveTitle, addTeam } from '../redux/ActionCreators';
+import { addTeams, deleteTeam, editTeam, updateTeam, changeSelected, hideModal, changeTitle, changeUsername, saveTitle, addTeam, matchList } from '../redux/ActionCreators';
 
 const mapStateToProps = (state) => ({
   teams: state.teams.data,
   modal: state.modal.modal,
   selectedTeam: state.teams.selectedTeam,
+  matchData: state.teams.matchData,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -24,17 +26,20 @@ const mapDispatchToProps = (dispatch) => ({
   editTeam: (team) => dispatch(editTeam(team)),
   changeSelected: (prop, value) => dispatch(changeSelected(prop, value)),
   hideModal: () => dispatch(hideModal()),
-  sarbconsole: (sarb) => dispatch(sarbconsole(sarb)),
   changeTitle: (team, title) => dispatch(changeTitle(team, title)),
   changeUsername: (team, username) => dispatch(changeUsername(team, username)),
   saveTitle: (e) => dispatch(saveTitle(e)),
   addTeam: () => dispatch(addTeam()),
+  matchList: () => dispatch(matchList()),
 });
 
+const pageHeight = {
+  height: window.innerHeight,
+};
 
 const AllTeams = (props) => (
   <div>
-    <div id="standings">
+    <div id="standings" style={pageHeight}>
       <div>
         <h1 className="textStyle">League Standings</h1>
       </div>
@@ -46,9 +51,9 @@ const AllTeams = (props) => (
             back to menu
           </Button>
         </NavLink>
-        <Button className="buttonStyle2" onClick={props.addTeam}>
-          <span className="fa fa-plus fa-sm" />
-          Add Team
+        <Button className="buttonStyle2" onClick={props.matchList}>
+          <span className="fa fa-bars fa-sm" />
+          Match List
         </Button>
 
 
@@ -65,7 +70,6 @@ const AllTeams = (props) => (
           changeSelected={props.changeSelected}
           modal={props.modal}
           hideModal={props.hideModal}
-          sarbconsole={props.sarbconsole}
           selectedTeam={props.selectedTeam}
         />
 
@@ -78,8 +82,14 @@ const AllTeams = (props) => (
           changeTitle={props.changeTitle}
           changeUsername={props.changeUsername}
           saveTitle={props.saveTitle}
-        // sarbconsole={props.sarbconsole}
         // selectedTeam={props.selectedTeam}
+        />
+
+        <MatchListModal
+          teams={props.teams}
+          modal={props.modal}
+          hideModal={props.hideModal}
+          matchData={props.matchData}
         />
 
         <div className="row">
